@@ -1,0 +1,59 @@
+<div class="container login-container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Login</h2>
+      <form
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit()"
+        class="d-flex flex-column justify-content-center"
+      >
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Enter your email"
+            formControlName="email"
+          />
+          <mat-error *ngIf="isInvalid('email', 'required')">
+            This field is required
+          </mat-error>
+          <mat-error *ngIf="isInvalid('email', 'email')">
+            Invalid email
+          </mat-error>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Enter your password"
+            formControlName="password"
+          />
+          <mat-error *ngIf="isInvalid('password', 'required')">
+            This field is required
+          </mat-error>
+          <mat-error *ngIf="isInvalid('password', 'minlength')">
+            Min length is
+            {{ loginForm.get("password")?.errors?.['minlength']?.requiredLength }}
+          </mat-error>
+        </div>
+
+        <div class="mb-3 text-center">
+          Don't have an account? <a routerLink="/register">Create One</a>
+        </div>
+
+        <mat-error *ngIf="error" class="text-center mb-2">
+          {{ error }}
+        </mat-error>
+
+        <main-button [type]="'submit'" [isLoading]="isLoading">
+          Login
+        </main-button>
+      </form>
+    </div>
+  </div>
+</div>

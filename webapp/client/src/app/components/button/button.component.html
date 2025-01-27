@@ -1,0 +1,15 @@
+<button
+  class="btn btn-primary main-button-wrapper btn-block"
+  [type]="type"
+  [disabled]="isLoading || disabled"
+>
+  <span
+    *ngIf="isLoading"
+    class="spinner-border spinner-border-sm"
+    role="status"
+    aria-hidden="true"
+  ></span>
+  <ng-container *ngIf="!isLoading">
+    <ng-content></ng-content>
+  </ng-container>
+</button>
