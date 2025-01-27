@@ -29,71 +29,6 @@ namespace api.Services.UserServices
             mapper = _mapper;
 
         }
-
-        public async Task<ServiceResponse<bool>> Delete(int Id)
-        {
-            ServiceResponse<bool> sr = new();
-
-            // Find the city by its ID
-            City? existingCity = await db.Cities.FindAsync(Id);
-
-            if (existingCity == null)
-            {
-                sr.Success = false;
-                sr.Message = "City not found.";
-                sr.Data = false;
-                return sr;
-            }
-
-            // Remove the city from the database
-            db.Cities.Remove(existingCity);
-            await db.SaveChangesAsync();
-
-            // Return success response
-            sr.Success = true;
-            sr.Message = "City deleted successfully.";
-            sr.Data = true;
-
-            return sr;
-        }
-
-        public async Task<ServiceResponse<List<City>>> GetAll()
-        {
-            ServiceResponse<List<City>> sr = new();
-
-            var cities = await db.Cities.ToListAsync();
-
-            // Set the success flag and data
-            sr.Success = true;
-            sr.Message = "Cities fetched successfully.";
-            sr.Data = cities; 
-
-            return sr;
-        }
-
-        public async Task<ServiceResponse<City>> GetById(int Id)
-        {
-            ServiceResponse<City> sr = new();
-
-            // Find the city by its ID
-            City? city = await db.Cities.FindAsync(Id);
-
-            // Check if the city exists
-            if (city == null)
-            {
-                sr.Success = false;
-                sr.Message = "City not found.";
-                return sr;
-            }
-
-            // City found, return it in the response
-            sr.Success = true;
-            sr.Message = "City retrieved successfully.";
-            sr.Data = city;
-
-            return sr;
-        }
-
         public async Task<ServiceResponse<City>> Insert(UpsertCityDto data)
         {
             ServiceResponse<City> sr = new();
@@ -161,6 +96,72 @@ namespace api.Services.UserServices
 
             return sr;
         }
+
+        public async Task<ServiceResponse<bool>> Delete(int Id)
+        {
+            ServiceResponse<bool> sr = new();
+
+            // Find the city by its ID
+            City? existingCity = await db.Cities.FindAsync(Id);
+
+            if (existingCity == null)
+            {
+                sr.Success = false;
+                sr.Message = "City not found.";
+                sr.Data = false;
+                return sr;
+            }
+
+            // Remove the city from the database
+            db.Cities.Remove(existingCity);
+            await db.SaveChangesAsync();
+
+            // Return success response
+            sr.Success = true;
+            sr.Message = "City deleted successfully.";
+            sr.Data = true;
+
+            return sr;
+        }
+
+        public async Task<ServiceResponse<List<City>>> GetAll()
+        {
+            ServiceResponse<List<City>> sr = new();
+
+            var cities = await db.Cities.ToListAsync();
+
+            // Set the success flag and data
+            sr.Success = true;
+            sr.Message = "Cities fetched successfully.";
+            sr.Data = cities; 
+
+            return sr;
+        }
+
+        public async Task<ServiceResponse<City>> GetById(int Id)
+        {
+            ServiceResponse<City> sr = new();
+
+            // Find the city by its ID
+            City? city = await db.Cities.FindAsync(Id);
+
+            // Check if the city exists
+            if (city == null)
+            {
+                sr.Success = false;
+                sr.Message = "City not found.";
+                return sr;
+            }
+
+            // City found, return it in the response
+            sr.Success = true;
+            sr.Message = "City retrieved successfully.";
+            sr.Data = city;
+
+            return sr;
+        }
+
+
     }
 }
 
