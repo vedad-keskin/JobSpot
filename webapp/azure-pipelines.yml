@@ -1,0 +1,63 @@
+# ASP.NET
+# Build and test ASP.NET projects.
+# Add steps that publish symbols, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: 'api/*.csproj'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  ftpServer: "ftp://p2335.app.fit.ba"
+  ftpUsername: "$(FTP_USERNAME)"
+  ftpPassword: "$(FTP_PASSWORD)"
+  remotePath: "/httpdocs/"
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: ".net Restore"
+  inputs:
+   command: "restore"
+   projects: '$(solution)'
+   noCache: true
+   
+- task: DotNetCoreCLI@2
+  displayName: ".net build"
+  inputs:
+   command: "build"
+   projects: '$(solution)'
+   arguments: "--configuration $(buildConfiguration)"
+
+- task: UseDotNet@2
+  displayName: 'Use .NET Core 7 SDK'
+  inputs:
+    packageType: 'sdk'
+    version: '7.x'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+
+- task: DotNetCoreCLI@2
+  displayName: "Publish application"
+  inputs:
+    command: "publish"
+    projects: "$(solution)"
+    publishWebProjects: true
+    arguments: "--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)"
+    zipAfterPublish: false
+
+- task: FtpUpload@2
+  displayName: "Upload to plesk FTP"
+  inputs:
+    credentialsOption: "inputs"
+    serverUrl: "$(ftpServer)"
+    username: "$(ftpUsername)"
+    password: "$(ftpPassword)"
+    rootDirectory: "$(Build.ArtifactStagingDirectory)"
+    remoteDirectory: "$(remotePath)"
+    clean: false
+    preservePaths: true
+    trustSSL: false
