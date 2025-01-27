@@ -2,6 +2,7 @@
 using AutoMapper;
 using api.Models;
 using api.DTOs.User;
+using api.DTOs.City;
 namespace api
 {
 	public class AutoMapper: Profile
@@ -14,6 +15,9 @@ namespace api
 
             CreateMap<User, RegisterDto>();
             CreateMap<RegisterDto, User>();
+
+
+            CreateMap<UpsertCityDto, City>();
         }
 	}
 }

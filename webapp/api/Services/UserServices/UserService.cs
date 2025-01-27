@@ -87,7 +87,7 @@ namespace api.Services.UserServices
                 sr.Message = "Invalid credentials!";
                 return sr;
             }
-            if (user.EmailConfirmed != true )
+            if (user.EmailConfirmed != true)
             {
                 sr = SendConfirmationEmail(user, sr);
 
@@ -120,8 +120,8 @@ namespace api.Services.UserServices
                 Success = true,
                 Message = "Succesfully registered!"
             };
-    
-            sr =  SendConfirmationEmail(user,  sr);
+
+            sr = SendConfirmationEmail(user, sr);
 
             return sr;
         }

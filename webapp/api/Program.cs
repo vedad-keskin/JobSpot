@@ -72,6 +72,7 @@ builder.Services.AddAuthorization(options => {
 
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ICityService, CityService>();
 
 
 var dbConnString = Environment.GetEnvironmentVariable("db_connection_string");

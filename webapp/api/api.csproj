@@ -40,10 +40,7 @@
     <None Remove="Services\EmailService\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DTOs\" />
-    <Folder Include="Services\" />
     <Folder Include="DTOs\User\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Services\UserServices\" />
     <Folder Include="Services\EmailService\" />
   </ItemGroup>

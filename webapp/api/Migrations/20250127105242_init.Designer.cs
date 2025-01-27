@@ -11,8 +11,8 @@ using api.Models;
 namespace api.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20250126103450_seed")]
-    partial class seed
+    [Migration("20250127105242_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
