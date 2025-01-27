@@ -31,6 +31,12 @@ namespace api.Controllers
             return Ok(await cityService.Update(Id, data));
         }
 
+        [HttpDelete("Delete/{Id}")]
+        public async Task<ActionResult<ServiceResponse<bool>>> Delete(int Id)
+        {
+            return Ok(await cityService.Delete(Id));
+        }
+
         [HttpGet("GetAll")]
         public async Task<ActionResult<ServiceResponse<List<City>>>> GetAll()
         {
@@ -43,11 +49,6 @@ namespace api.Controllers
             return Ok(await cityService.GetById(Id));
         }
 
-        [HttpDelete("Delete/{Id}")]
-        public async Task<ActionResult<ServiceResponse<bool>>> Delete(int Id)
-        {
-            return Ok(await cityService.Delete(Id));
-        }
 
 
     }
