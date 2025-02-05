@@ -12,10 +12,13 @@ namespace api.Models
         {
             base.OnModelCreating(modelBuilder);
 
-
+            modelBuilder.ApplyConfiguration(new CountryConfiguration());
             modelBuilder.ApplyConfiguration(new CityConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
-            modelBuilder.ApplyConfiguration(new CountryConfiguration());
+            modelBuilder.ApplyConfiguration(new TypeConfiguration());
+            modelBuilder.ApplyConfiguration(new PostingConfiguration());
+
+
 
 
         }
@@ -24,6 +27,9 @@ namespace api.Models
         public DbSet<City> Cities { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Type> Types { get; set; }
+        public DbSet<Posting> Postings { get; set; }
+
 
 
     }

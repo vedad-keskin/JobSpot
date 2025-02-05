@@ -11,7 +11,7 @@ using api.Models;
 namespace api.Migrations
 {
     [DbContext(typeof(DBContext))]
-    [Migration("20250129181330_init")]
+    [Migration("20250205205024_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -44,102 +44,102 @@ namespace api.Migrations
                         new
                         {
                             Id = 1,
-                            Title = "IT & Software Development"
+                            Title = "IT & Programming"
                         },
                         new
                         {
                             Id = 2,
-                            Title = "Healthcare & Medicine"
+                            Title = "Marketing & PR"
                         },
                         new
                         {
                             Id = 3,
-                            Title = "Engineering & Architecture"
+                            Title = "Sales & Purchases"
                         },
                         new
                         {
                             Id = 4,
-                            Title = "Education & Training"
+                            Title = "Administration & Management"
                         },
                         new
                         {
                             Id = 5,
-                            Title = "Sales & Marketing"
+                            Title = "Finance & Accounting"
                         },
                         new
                         {
                             Id = 6,
-                            Title = "Customer Service"
+                            Title = "Healthcare"
                         },
                         new
                         {
                             Id = 7,
-                            Title = "Accounting & Finance"
+                            Title = "Education & Teaching"
                         },
                         new
                         {
                             Id = 8,
-                            Title = "Human Resources"
+                            Title = "Engineering & Technical Jobs"
                         },
                         new
                         {
                             Id = 9,
-                            Title = "Construction & Skilled Trades"
+                            Title = "Logistics & Transportation"
                         },
                         new
                         {
                             Id = 10,
-                            Title = "Transport & Logistics"
+                            Title = "Services & Manual Jobs"
                         },
                         new
                         {
                             Id = 11,
-                            Title = "Hospitality & Tourism"
+                            Title = "Tourism & Hospitality"
                         },
                         new
                         {
                             Id = 12,
-                            Title = "Media & Communications"
+                            Title = "Law & Consulting"
                         },
                         new
                         {
                             Id = 13,
-                            Title = "Arts & Design"
+                            Title = "Design & Creative Industries"
                         },
                         new
                         {
                             Id = 14,
-                            Title = "Legal & Compliance"
+                            Title = "Labor & Physical Jobs"
                         },
                         new
                         {
                             Id = 15,
-                            Title = "Retail & E-commerce"
+                            Title = "Real Estate & Construction"
                         },
                         new
                         {
                             Id = 16,
-                            Title = "Manufacturing & Production"
+                            Title = "Human Resources & Recruitment"
                         },
                         new
                         {
                             Id = 17,
-                            Title = "Science & Research"
+                            Title = "Management & Leadership"
                         },
                         new
                         {
                             Id = 18,
-                            Title = "Public Sector & Government"
+                            Title = "Arts & Culture"
                         },
                         new
                         {
                             Id = 19,
-                            Title = "Environmental & Agriculture"
+                            Title = "Science & Research"
                         },
                         new
                         {
                             Id = 20,
-                            Title = "Freelancing & Remote Work"
+                            Title = "Environment & Sustainability"
                         });
                 });
 
@@ -151,11 +151,16 @@ namespace api.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("Cities");
 
@@ -163,152 +168,206 @@ namespace api.Migrations
                         new
                         {
                             Id = 1,
-                            Title = "Banja Luka"
-                        },
-                        new
-                        {
-                            Id = 2,
+                            CountryId = 1,
                             Title = "Sarajevo"
                         },
                         new
                         {
-                            Id = 3,
-                            Title = "Mostar"
+                            Id = 2,
+                            CountryId = 1,
+                            Title = "Banja Luka"
                         },
                         new
                         {
-                            Id = 4,
+                            Id = 3,
+                            CountryId = 1,
                             Title = "Tuzla"
                         },
                         new
                         {
-                            Id = 5,
+                            Id = 4,
+                            CountryId = 1,
                             Title = "Zenica"
                         },
                         new
                         {
+                            Id = 5,
+                            CountryId = 1,
+                            Title = "Mostar"
+                        },
+                        new
+                        {
                             Id = 6,
-                            Title = "Doboj"
+                            CountryId = 1,
+                            Title = "Bihać"
                         },
                         new
                         {
                             Id = 7,
-                            Title = "Bijeljina"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Title = "Trebinje"
-                        },
-                        new
-                        {
-                            Id = 9,
+                            CountryId = 1,
                             Title = "Prijedor"
                         },
                         new
                         {
+                            Id = 8,
+                            CountryId = 1,
+                            Title = "Doboj"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CountryId = 1,
+                            Title = "Bijeljina"
+                        },
+                        new
+                        {
                             Id = 10,
-                            Title = "Gradiška"
+                            CountryId = 1,
+                            Title = "Gračanica"
                         },
                         new
                         {
                             Id = 11,
+                            CountryId = 1,
                             Title = "Brčko"
                         },
                         new
                         {
                             Id = 12,
-                            Title = "Široki Brijeg"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            Title = "Livno"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            Title = "Konjic"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            Title = "Jajce"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            Title = "Zvornik"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Title = "Cazin"
-                        },
-                        new
-                        {
-                            Id = 18,
-                            Title = "Bihać"
-                        },
-                        new
-                        {
-                            Id = 19,
+                            CountryId = 1,
                             Title = "Travnik"
                         },
                         new
                         {
-                            Id = 20,
-                            Title = "Bugojno"
-                        },
-                        new
-                        {
-                            Id = 21,
-                            Title = "Goražde"
-                        },
-                        new
-                        {
-                            Id = 22,
-                            Title = "Foča"
-                        },
-                        new
-                        {
-                            Id = 23,
+                            Id = 13,
+                            CountryId = 1,
                             Title = "Srebrenica"
                         },
                         new
                         {
+                            Id = 14,
+                            CountryId = 1,
+                            Title = "Cazin"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CountryId = 1,
+                            Title = "Goražde"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CountryId = 1,
+                            Title = "Bugojno"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CountryId = 1,
+                            Title = "Trebinje"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CountryId = 1,
+                            Title = "Jajce"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CountryId = 1,
+                            Title = "Maglaj"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CountryId = 1,
+                            Title = "Kakanj"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CountryId = 2,
+                            Title = "Beograd"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CountryId = 2,
+                            Title = "Subotica"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CountryId = 2,
+                            Title = "Kragujevac"
+                        },
+                        new
+                        {
                             Id = 24,
-                            Title = "Višegrad"
+                            CountryId = 2,
+                            Title = "Niš"
                         },
                         new
                         {
                             Id = 25,
-                            Title = "Laktaši"
+                            CountryId = 2,
+                            Title = "Novi Pazar"
                         },
                         new
                         {
                             Id = 26,
-                            Title = "Nevesinje"
+                            CountryId = 3,
+                            Title = "Zagreb"
                         },
                         new
                         {
                             Id = 27,
-                            Title = "Sanski Most"
+                            CountryId = 3,
+                            Title = "Šibenik"
                         },
                         new
                         {
                             Id = 28,
-                            Title = "Bosanska Krupa"
+                            CountryId = 3,
+                            Title = "Split"
                         },
                         new
                         {
                             Id = 29,
-                            Title = "Kotor Varoš"
+                            CountryId = 3,
+                            Title = "Rijeka"
                         },
                         new
                         {
                             Id = 30,
-                            Title = "Modriča"
+                            CountryId = 3,
+                            Title = "Osijek"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CountryId = 4,
+                            Title = "Podgorica"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            CountryId = 4,
+                            Title = "Ulcinj"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            CountryId = 4,
+                            Title = "Budva"
+                        },
+                        new
+                        {
+                            Id = 34,
+                            CountryId = 4,
+                            Title = "Kotor"
                         });
                 });
 
@@ -333,6 +392,93 @@ namespace api.Migrations
                         {
                             Id = 1,
                             Title = "Bosna i Hercegovina"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Srbija"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Title = "Hrvatska"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Title = "Crna Gora"
+                        });
+                });
+
+            modelBuilder.Entity("api.Models.Posting", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CityId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TypeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isPublic")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CityId");
+
+                    b.HasIndex("TypeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Postings");
+                });
+
+            modelBuilder.Entity("api.Models.Type", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Types");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Title = "Usluga"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Title = "Oglas"
                         });
                 });
 
@@ -369,6 +515,52 @@ namespace api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("api.Models.City", b =>
+                {
+                    b.HasOne("api.Models.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
+                });
+
+            modelBuilder.Entity("api.Models.Posting", b =>
+                {
+                    b.HasOne("api.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("api.Models.City", "City")
+                        .WithMany()
+                        .HasForeignKey("CityId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("api.Models.Type", "Type")
+                        .WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("api.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("City");
+
+                    b.Navigation("Type");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

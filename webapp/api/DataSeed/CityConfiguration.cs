@@ -12,154 +12,226 @@ namespace api.DataSeed
                 new City
                 {
                     Id = 1,
-                    Title = "Banja Luka",
+                    Title = "Sarajevo",
+                    CountryId = 1,
                 },
                 new City
                 {
                     Id = 2,
-                    Title = "Sarajevo",
+                    Title = "Banja Luka",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 3,
-                    Title = "Mostar",
+                    Title = "Tuzla",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 4,
-                    Title = "Tuzla",
+                    Title = "Zenica",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 5,
-                    Title = "Zenica",
+                    Title = "Mostar",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 6,
-                    Title = "Doboj",
+                    Title = "Bihać",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 7,
-                    Title = "Bijeljina",
+                    Title = "Prijedor",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 8,
-                    Title = "Trebinje",
+                    Title = "Doboj",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 9,
-                    Title = "Prijedor",
+                    Title = "Bijeljina",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 10,
-                    Title = "Gradiška",
+                    Title = "Gračanica",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 11,
                     Title = "Brčko",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 12,
-                    Title = "Široki Brijeg",
+                    Title = "Travnik",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 13,
-                    Title = "Livno",
+                    Title = "Srebrenica",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 14,
-                    Title = "Konjic",
+                    Title = "Cazin",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 15,
-                    Title = "Jajce",
+                    Title = "Goražde",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 16,
-                    Title = "Zvornik",
+                    Title = "Bugojno",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 17,
-                    Title = "Cazin",
+                    Title = "Trebinje",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 18,
-                    Title = "Bihać",
+                    Title = "Jajce",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 19,
-                    Title = "Travnik",
+                    Title = "Maglaj",
+                    CountryId = 1,
+
                 },
                 new City
                 {
                     Id = 20,
-                    Title = "Bugojno",
-                },
-                new City
-                {
-                    Id = 21,
-                    Title = "Goražde",
-                },
-                new City
-                {
-                    Id = 22,
-                    Title = "Foča",
-                },
-                new City
-                {
-                    Id = 23,
-                    Title = "Srebrenica",
-                },
-                new City
-                {
-                    Id = 24,
-                    Title = "Višegrad",
-                },
-                new City
-                {
-                    Id = 25,
-                    Title = "Laktaši",
-                },
-                new City
-                {
-                    Id = 26,
-                    Title = "Nevesinje",
-                },
-                new City
-                {
-                    Id = 27,
-                    Title = "Sanski Most",
-                },
-                new City
-                {
-                    Id = 28,
-                    Title = "Bosanska Krupa",
-                },
-                new City
-                {
-                    Id = 29,
-                    Title = "Kotor Varoš",
-                },
-                new City
-                {
-                    Id = 30,
-                    Title = "Modriča",
-                }
+                    Title = "Kakanj",
+                    CountryId = 1,
 
+                },
+                 new City
+                 {
+                     Id = 21,
+                     Title = "Beograd",
+                     CountryId = 2,
+                 },
+                 new City
+                 {
+                     Id = 22,
+                     Title = "Subotica",
+                     CountryId = 2,
+                 },
+                 new City
+                 {
+                     Id = 23,
+                     Title = "Kragujevac",
+                     CountryId = 2,
+                 },
+                 new City
+                 {
+                     Id = 24,
+                     Title = "Niš",
+                     CountryId = 2,
+                 },
+                 new City
+                 {
+                     Id = 25,
+                     Title = "Novi Pazar",
+                     CountryId = 2,
+                 },
+                 new City
+                 {
+                     Id = 26,
+                     Title = "Zagreb",
+                     CountryId = 3,
+                 },
+                 new City
+                 {
+                     Id = 27,
+                     Title = "Šibenik",
+                     CountryId = 3,
+                 },
+                 new City
+                 {
+                     Id = 28,
+                     Title = "Split",
+                     CountryId = 3,
+                 },
+                 new City
+                 {
+                     Id = 29,
+                     Title = "Rijeka",
+                     CountryId = 3,
+                 },
+                 new City
+                 {
+                     Id = 30,
+                     Title = "Osijek",
+                     CountryId = 3,
+                 },
+                 new City
+                 {
+                     Id = 31,
+                     Title = "Podgorica",
+                     CountryId = 4,
+                 },
+                  new City
+                  {
+                      Id = 32,
+                      Title = "Ulcinj",
+                      CountryId = 4,
+                  },
+                   new City
+                   {
+                       Id = 33,
+                       Title = "Budva",
+                       CountryId = 4,
+                   },
+                    new City
+                    {
+                        Id = 34,
+                        Title = "Kotor",
+                        CountryId = 4,
+                    }
          );
         }
     }

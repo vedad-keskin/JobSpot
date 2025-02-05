@@ -2,9 +2,8 @@
 
 namespace api.Models
 {
-    public class Country
+    public class Type
     {
-
         [Key]
         public int Id { get; set; }
 
@@ -12,3 +11,4 @@ namespace api.Models
         public string Title { get; set; } = string.Empty;
     }
 }
+

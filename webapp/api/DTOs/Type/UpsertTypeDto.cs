@@ -1,14 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace api.Models
+namespace api.DTOs.ListingType
 {
-    public class Country
+    public class UpsertTypeDto
     {
-
-        [Key]
-        public int Id { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "Type name is required!")]
         public string Title { get; set; } = string.Empty;
     }
 }

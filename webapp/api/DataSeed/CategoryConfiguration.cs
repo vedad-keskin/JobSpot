@@ -9,107 +9,106 @@ namespace api.DataSeed
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasData(
-               new Category
-               {
-                   Id = 1,
-                   Title = "IT & Software Development",
-               },
+                new Category
+                {
+                    Id = 1,
+                    Title = "IT & Programming",
+                },
                 new Category
                 {
                     Id = 2,
-                    Title = "Healthcare & Medicine",
+                    Title = "Marketing & PR",
                 },
                 new Category
                 {
                     Id = 3,
-                    Title = "Engineering & Architecture",
+                    Title = "Sales & Purchases",
                 },
                 new Category
                 {
                     Id = 4,
-                    Title = "Education & Training",
+                    Title = "Administration & Management",
                 },
                 new Category
                 {
                     Id = 5,
-                    Title = "Sales & Marketing",
+                    Title = "Finance & Accounting",
                 },
                 new Category
                 {
                     Id = 6,
-                    Title = "Customer Service",
+                    Title = "Healthcare",
                 },
                 new Category
                 {
                     Id = 7,
-                    Title = "Accounting & Finance",
+                    Title = "Education & Teaching",
                 },
                 new Category
                 {
                     Id = 8,
-                    Title = "Human Resources",
+                    Title = "Engineering & Technical Jobs",
                 },
                 new Category
                 {
                     Id = 9,
-                    Title = "Construction & Skilled Trades",
+                    Title = "Logistics & Transportation",
                 },
                 new Category
                 {
                     Id = 10,
-                    Title = "Transport & Logistics",
+                    Title = "Services & Manual Jobs",
                 },
                 new Category
                 {
                     Id = 11,
-                    Title = "Hospitality & Tourism",
+                    Title = "Tourism & Hospitality",
                 },
                 new Category
                 {
                     Id = 12,
-                    Title = "Media & Communications",
+                    Title = "Law & Consulting",
                 },
                 new Category
                 {
                     Id = 13,
-                    Title = "Arts & Design",
+                    Title = "Design & Creative Industries",
                 },
                 new Category
                 {
                     Id = 14,
-                    Title = "Legal & Compliance",
+                    Title = "Labor & Physical Jobs",
                 },
                 new Category
                 {
                     Id = 15,
-                    Title = "Retail & E-commerce",
+                    Title = "Real Estate & Construction",
                 },
                 new Category
                 {
                     Id = 16,
-                    Title = "Manufacturing & Production",
+                    Title = "Human Resources & Recruitment",
                 },
                 new Category
                 {
                     Id = 17,
-                    Title = "Science & Research",
+                    Title = "Management & Leadership",
                 },
                 new Category
                 {
                     Id = 18,
-                    Title = "Public Sector & Government",
+                    Title = "Arts & Culture",
                 },
                 new Category
                 {
                     Id = 19,
-                    Title = "Environmental & Agriculture",
+                    Title = "Science & Research",
                 },
                 new Category
                 {
                     Id = 20,
-                    Title = "Freelancing & Remote Work",
+                    Title = "Environment & Sustainability",
                 }
-
          );
         }
     }

@@ -1,13 +1,16 @@
-﻿using api.DTOs.City;
-using api.Models;
-using api.Services.CityService;
+﻿using System;
 using Microsoft.AspNetCore.Mvc;
+using api.Models;
+using api.DTOs.User;
+using api.Services.UserServices;
+using Microsoft.AspNetCore.Authorization;
+using api.DTOs.City;
 
 namespace api.Controllers
 {
     [ApiController]
     [Route("City")]
-    public class CityController: ControllerBase
+    public class CityController : ControllerBase
     {
         private readonly ICityService cityService;
 
@@ -23,9 +26,9 @@ namespace api.Controllers
         }
 
         [HttpPut("Update/{Id}")]
-        public async Task<ActionResult<ServiceResponse<City>>> Update(int Id,UpsertCityDto data)
+        public async Task<ActionResult<ServiceResponse<City>>> Update(int Id, UpsertCityDto data)
         {
-            return Ok(await cityService.Update(Id,data));
+            return Ok(await cityService.Update(Id, data));
         }
 
         [HttpDelete("Delete/{Id}")]

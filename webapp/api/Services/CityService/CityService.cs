@@ -1,29 +1,17 @@
-﻿using System;
-using api.DTOs.User;
+﻿using api.DTOs.City;
 using api.Models;
-using Microsoft.EntityFrameworkCore;
 using AutoMapper;
-using Microsoft.AspNetCore.Http.HttpResults;
-using System.Security.Claims;
-using api.Services.EmailService;
-using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using api.DTOs.City;
-using Sprache;
-using System.Collections.Generic;
-using IdentityModel;
+using Microsoft.EntityFrameworkCore;
 
-namespace api.Services.UserServices
+namespace api.Services.CityService
 {
-    public class CityService : ICityService
+    public class CityService: ICityService
     {
         private readonly DBContext db;
         private readonly IMapper mapper;
 
 
-        public CityService(DBContext _db, IMapper _mapper)
+        public CityService(DBContext _db,IMapper _mapper)
         {
             db = _db;
             mapper = _mapper;
@@ -56,7 +44,7 @@ namespace api.Services.UserServices
             return sr;
         }
 
-        public async Task<ServiceResponse<City>> Update(int Id, UpsertCityDto data)
+        public async Task<ServiceResponse<City>> Update(int Id,UpsertCityDto data)
         {
             ServiceResponse<City> sr = new();
 
@@ -81,7 +69,7 @@ namespace api.Services.UserServices
             }
 
             // Map the updated data to the existing city entity
-            existingCity = mapper.Map(data, existingCity);
+            existingCity = mapper.Map(data,existingCity);
 
 
 
@@ -133,7 +121,7 @@ namespace api.Services.UserServices
             // Set the success flag and data
             sr.Success = true;
             sr.Message = "Cities fetched successfully.";
-            sr.Data = cities; 
+            sr.Data = cities;
 
             return sr;
         }

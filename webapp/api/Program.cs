@@ -1,13 +1,17 @@
-﻿using api.Models;
-using Microsoft.EntityFrameworkCore;
-using api.Services.UserServices;
-using System.Security.Claims;
-using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
+﻿using System.Text;
+using api.Models;
+using api.Services.CategoryService;
+using api.Services.CityService;
+using api.Services.CountryService;
 using api.Services.EmailService;
+using api.Services.ListingTypeService;
+using api.Services.PostingService;
+using api.Services.UserServices;
 using DotNetEnv;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +20,9 @@ Env.Load($".env.{env}");
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(options => {
-    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition("Bearer",new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
         Name = "Authorization",
@@ -48,7 +53,8 @@ builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options => {
+}).AddJwtBearer(options =>
+{
     string key = Environment.GetEnvironmentVariable("jwt_secret") ?? "";
     byte[] keyBytes = Encoding.ASCII.GetBytes(key);
     options.TokenValidationParameters = new TokenValidationParameters
@@ -61,18 +67,25 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddAuthorization(options => {
-    options.AddPolicy("IsAdmin", policy =>
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("IsAdmin",policy =>
     {
-        policy.RequireClaim("isAdmin", "True");
+        policy.RequireClaim("isAdmin","True");
     });
 });
 
 
 
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<IEmailService, EmailService>();
-builder.Services.AddScoped<ICityService, CityService>();
+builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<IEmailService,EmailService>();
+builder.Services.AddScoped<ICityService,CityService>();
+builder.Services.AddScoped<ICountryService,CountryService>();
+builder.Services.AddScoped<ICategoryService,CategoryService>();
+builder.Services.AddScoped<ITypeService,TypeService>();
+builder.Services.AddScoped<IPostingService,PostingService>();
+
+
 
 
 var dbConnString = Environment.GetEnvironmentVariable("db_connection_string");
@@ -87,7 +100,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseCors(builder=>builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.UseAuthentication();
 app.UseAuthorization();

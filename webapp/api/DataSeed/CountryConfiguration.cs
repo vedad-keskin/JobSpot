@@ -13,6 +13,21 @@ namespace api.DataSeed
                 {
                     Id = 1,
                     Title = "Bosna i Hercegovina",
+                },
+                new Country
+                {
+                    Id = 2,
+                    Title = "Srbija",
+                },
+                new Country
+                {
+                    Id = 3,
+                    Title = "Hrvatska",
+                },
+                new Country
+                {
+                    Id = 4,
+                    Title = "Crna Gora",
                 }
             );
         }

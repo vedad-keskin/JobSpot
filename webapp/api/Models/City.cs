@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace api.Models
 {
@@ -9,5 +10,12 @@ namespace api.Models
 
         [Required]
         public string Title { get; set; } = string.Empty;
+
+
+        [Required]
+        [ForeignKey(nameof(Country))]
+        public int CountryId { get; set; }
+        public Country? Country { get; set; }
+
     }
 }
