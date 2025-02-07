@@ -1,0 +1,25 @@
+.card {
+  border-radius: 12px;
+}
+
+.card-header {
+  border-radius: 12px 12px 0 0;
+}
+
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
